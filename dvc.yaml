@@ -35,3 +35,15 @@ stages:
     - src/models/train.py
     outs:
     - models/trained_model.joblib
+  evaluation:
+    cmd: python src/models/evaluation.py
+    deps:
+    - data/processed/X_test_scaled.csv
+    - data/processed/y_test.csv
+    - models/trained_model.joblib
+    - src/models/evaluation.py
+    outs:
+    - data/predictions/prediction.csv
+    metrics:
+    - metrics/scores.json:
+        cache: false
