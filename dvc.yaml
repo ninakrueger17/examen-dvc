@@ -1,9 +1,9 @@
 stages:
   split:
-    cmd: python src/data_split.py
+    cmd: python src/data/data_splitting.py
     deps:
     - data/raw/raw.csv
-    - src/data_split.py
+    - src/data/data_splitting.py
     outs:
     - data/processed/X_test.csv
     - data/processed/X_train.csv
