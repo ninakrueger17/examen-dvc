@@ -24,7 +24,7 @@ def main(repo_path):
     with open(metric_path, "w") as f:
         json.dump(metrics, f)
 
-    os.makedir(out, exist_ok = True)
+    os.makedirs(out, exist_ok = True)
 
     X_test["y_true"] = y_test
     X_test["y_pred"] = predictions
