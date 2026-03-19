@@ -9,3 +9,12 @@ stages:
     - data/processed/X_train.csv
     - data/processed/y_test.csv
     - data/processed/y_train.csv
+  normalize:
+    cmd: python src/data/data_normalization.py
+    deps:
+    - data/processed/X_test.csv
+    - data/processed/X_train.csv
+    - src/data/data_normalization.py
+    outs:
+    - data/processed/X_test_scaled.csv
+    - data/processed/X_train_scaled.csv
