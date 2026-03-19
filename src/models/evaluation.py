@@ -13,7 +13,9 @@ y_test = np.ravel(y_test)
 out = "data/predictions"
 
 def main(repo_path):
-    model = load(repo_path / "models/trained_model.joblib")
+    model_path = repo_path / "models/trained_model.pkl"
+    with open(model_path, "rb") as f:
+        model = pickle.load(f)
     predictions = model.predict(X_test)
     mse = mean_squared_error(y_test, predictions)
     mae = mean_absolute_error(y_test, predictions)

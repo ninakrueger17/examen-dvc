@@ -1,9 +1,8 @@
 import sklearn
 import pandas as pd 
 from sklearn.ensemble import RandomForestRegressor
-import joblib
 import numpy as np
-import json
+import pickle
 
 print(joblib.__version__)
 
@@ -14,8 +13,8 @@ y_test = pd.read_csv('data/processed/y_test.csv')
 y_train = np.ravel(y_train)
 y_test = np.ravel(y_test)
 
-with open("./models/best_params.json", "r") as f:
-    best_params = json.load(f)
+with open("./models/best_params.pkl", "rb") as f:
+    best_params = pickle.load(f)
 
 best_params["max_depth"] = None if best_params["max_depth"] == "None" else best_params["max_depth"]
 best_params["max_features"] = None if best_params["max_features"] == "None" else best_params["max_features"]
@@ -26,6 +25,7 @@ rf = RandomForestRegressor(**best_params, n_jobs = -1, random_state=17)
 rf.fit(X_train, y_train)
 
 #--Save the trained model to a file
-model_filename = './models/trained_model.joblib'
-joblib.dump(rf, model_filename)
+model_filename = './models/trained_model.pkl'
+with open(model_filename, 'wb') as f:
+    pickle.dump(rf, f)
 print("Model trained and saved successfully.")

@@ -1,8 +1,8 @@
 import pandas as pd
 from sklearn.model_selection import GridSearchCV
 from sklearn.ensemble import RandomForestRegressor
-import json
 import numpy as np
+import pickle
 
 X_train = pd.read_csv('data/processed/X_train_scaled.csv')
 y_train = pd.read_csv('data/processed/y_train.csv')
@@ -25,5 +25,5 @@ gs.fit(X_train, y_train)
 
 best_params = gs.best_params_
 
-with open("./models/best_params.json", "w") as f:
-    json.dump(best_params, f, indent=4)
+with open("./models/best_params.pkl", "wb") as f:
+    pickle.dump(best_params, f)
