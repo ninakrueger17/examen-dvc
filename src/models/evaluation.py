@@ -9,6 +9,7 @@ from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 X_test = pd.read_csv('data/processed/X_test_scaled.csv')
 y_test = pd.read_csv('data/processed/y_test.csv')
 y_test = np.ravel(y_test)
+out = "data/predictions"
 
 def main(repo_path):
     model = load(repo_path / "models/trained_model.joblib")
@@ -21,6 +22,13 @@ def main(repo_path):
     
     with open(metric_path, "w") as f:
         json.dump(metrics, f)
+
+    os.makedir(out, exist_ok = True)
+
+    X_test["y_true"] = y_test
+    X_test["y_pred"] = predictions
+
+    X_test.to_csv(f"{out}/prediction.csv")
 
 if __name__ == "__main__":
     repo_path = Path(__file__).parent.parent.parent
