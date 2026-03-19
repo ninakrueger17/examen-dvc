@@ -1,16 +1,6 @@
 # Examen DVC et Dagshub
 
-```bash       
-├── examen_dvc          
-│   ├── data       
-│   │   ├── processed      
-│   │   └── raw       
-│   ├── metrics       
-│   ├── models           
-│   ├── src   
-    │   ├── data      
-│   │   └── models       
-│   └── README.md.py       
-```
-
-
+Name: Krüger
+Firstname: Nina
+Email: nikru@gmx.de
+Dagshub: https://dagshub.com/ninakrueger17/examen-dvc

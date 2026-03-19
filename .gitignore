@@ -1,2 +1,8 @@
 /venv
 /clean_data.csv
+.venv 
+
+!src/data/
+!src/models/
+
+.python-version
