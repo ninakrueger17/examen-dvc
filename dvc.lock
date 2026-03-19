@@ -65,13 +65,13 @@ stages:
       size: 25888
     - path: src/models/gridsearch.py
       hash: md5
-      md5: 20254a38c8c2b6b0cd322337503082e3
-      size: 765
+      md5: 1dfcbf4abb80c3f1f9383949ab0727e2
+      size: 759
     outs:
-    - path: models/best_params.json
+    - path: models/best_params.pkl
       hash: md5
-      md5: ad81a6b7f29c61ce8dcf20c74c674387
-      size: 154
+      md5: fe71001ef1ec362b0049785aea3b213f
+      size: 125
   training:
     cmd: python src/models/train.py
     deps:
@@ -83,19 +83,19 @@ stages:
       hash: md5
       md5: 802f1755cd8a7c1ace18210a36d75a5d
       size: 25888
-    - path: models/best_params.json
+    - path: models/best_params.pkl
       hash: md5
-      md5: ad81a6b7f29c61ce8dcf20c74c674387
-      size: 154
+      md5: fe71001ef1ec362b0049785aea3b213f
+      size: 125
     - path: src/models/train.py
       hash: md5
-      md5: 450efbf1d28b17f2ae9b6f4e5db22053
-      size: 1007
+      md5: ff3e115360b619e5f9f8dd29c264ea83
+      size: 996
     outs:
-    - path: models/trained_model.joblib
+    - path: models/trained_model.pkl
       hash: md5
-      md5: 6137737cd903b5825340966907542a03
-      size: 2408753
+      md5: e7a29f67dcf2b63b7c3ae4f0591a3a08
+      size: 2401523
   evaluation:
     cmd: python src/models/evaluation.py
     deps:
@@ -107,19 +107,19 @@ stages:
       hash: md5
       md5: ab68efb36ab8db951a5e638f0539ccf1
       size: 6519
-    - path: models/trained_model.joblib
+    - path: models/trained_model.pkl
       hash: md5
-      md5: 6137737cd903b5825340966907542a03
-      size: 2408753
+      md5: e7a29f67dcf2b63b7c3ae4f0591a3a08
+      size: 2401523
     - path: src/models/evaluation.py
       hash: md5
-      md5: 741ca09c80ac30b8e77d24fc314349a2
-      size: 1034
+      md5: ddd47e6a77bc0969a967339632badc83
+      size: 1090
     outs:
     - path: data/predictions/prediction.csv
       hash: md5
-      md5: ee352c5444ce307793be8820c72d0fa6
-      size: 70803
+      md5: 5258622f92651bf688ba171ca20e1366
+      size: 70797
     - path: metrics/scores.json
       hash: md5
       md5: e1dcf43665a38ac5363d3e84c3c2bcd4

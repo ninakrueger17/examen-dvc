@@ -1,6 +1,6 @@
 import pandas as pd 
 import numpy as np
-from joblib import load
+import pickle 
 import json
 from pathlib import Path
 import os 

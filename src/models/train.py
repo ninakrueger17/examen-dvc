@@ -4,8 +4,6 @@ from sklearn.ensemble import RandomForestRegressor
 import numpy as np
 import pickle
 
-print(joblib.__version__)
-
 X_train = pd.read_csv('data/processed/X_train_scaled.csv')
 X_test = pd.read_csv('data/processed/X_test_scaled.csv')
 y_train = pd.read_csv('data/processed/y_train.csv')
